@@ -1,0 +1,25 @@
+﻿@model MVCCheckBoxList.Models.ProductModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    <table>
+        @for (int i = 0; i < Model.Products.Count; i++)
+        {
+            if (i % 3 == 0)
+            { 
+                @:<tr></tr>    
+            }
+        <td>
+            @Html.CheckBoxFor(model => model.Products[i].IsChecked)
+            <label>@Model.Products[i].fProductName</label>
+            @Html.HiddenFor(model => model.Products[i].fId)
+            @Html.HiddenFor(model => model.Products[i].fProductName)
+        </td>
+        }
+    </table>
+    <input type="submit" value="送出" />
+}
+

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbMVCProModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tProduct">
+    <Key>
+      <PropertyRef Name="fProductId" />
+    </Key>
+    <Property Name="fProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tStock">
+    <Key>
+      <PropertyRef Name="fStockId" />
+    </Key>
+    <Property Name="fStockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fProductId" Type="Int32" />
+    <Property Name="fCount" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="dbMVCProEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tProducts" EntityType="Self.tProduct" />
+    <EntitySet Name="tStocks" EntityType="Self.tStock" />
+  </EntityContainer>
+</Schema>

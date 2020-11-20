@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbMVCProModelStoreContainer" CdmEntityContainer="dbMVCProEntities">
+    <EntitySetMapping Name="tProducts">
+      <EntityTypeMapping TypeName="dbMVCProModel.tProduct">
+        <MappingFragment StoreEntitySet="tProduct">
+          <ScalarProperty Name="fProductId" ColumnName="fProductId" />
+          <ScalarProperty Name="fProductName" ColumnName="fProductName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tStocks">
+      <EntityTypeMapping TypeName="dbMVCProModel.tStock">
+        <MappingFragment StoreEntitySet="tStock">
+          <ScalarProperty Name="fStockId" ColumnName="fStockId" />
+          <ScalarProperty Name="fProductId" ColumnName="fProductId" />
+          <ScalarProperty Name="fCount" ColumnName="fCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

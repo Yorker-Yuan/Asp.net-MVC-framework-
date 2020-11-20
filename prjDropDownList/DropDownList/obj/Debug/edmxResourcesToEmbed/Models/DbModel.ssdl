@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbMVCProModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tProduct">
+    <Key>
+      <PropertyRef Name="fProductId" />
+    </Key>
+    <Property Name="fProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProductName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tStock">
+    <Key>
+      <PropertyRef Name="fStockId" />
+    </Key>
+    <Property Name="fStockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fProductId" Type="int" />
+    <Property Name="fCount" Type="int" />
+  </EntityType>
+  <EntityContainer Name="dbMVCProModelStoreContainer">
+    <EntitySet Name="tProduct" EntityType="Self.tProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tStock" EntityType="Self.tStock" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

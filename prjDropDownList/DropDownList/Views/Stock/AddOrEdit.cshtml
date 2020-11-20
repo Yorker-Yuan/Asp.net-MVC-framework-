@@ -1,0 +1,28 @@
+﻿@model DropDownList.Models.tStock
+@{
+    ViewBag.Title = "Add Or Edit";
+}
+
+@using (Html.BeginForm("AddOrEdit", "Stock", FormMethod.Post))
+{
+
+    <table>
+        <tr>
+            <td></td>
+            <td style="text-decoration:underline">Add Stock</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.fProductId)</td>
+            <td>@Html.DropDownListFor(model => model.fProductId, new SelectList(Model.ProductCollection, "fProductId", "fProductName"), "Select")</td>
+        </tr>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.fCount)</td>
+            <td>@Html.EditorFor(model => model.fCount)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="name" value="送出" /></td>
+        </tr>
+    </table>
+}
+

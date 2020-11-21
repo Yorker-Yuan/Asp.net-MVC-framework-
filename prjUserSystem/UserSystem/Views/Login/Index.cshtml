@@ -1,0 +1,64 @@
+﻿@model UserSystem.Models.tUserLogin
+@{
+    ViewBag.Title = "Index";
+    //Layout = "/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+
+<style>
+    #login-div {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        border: 1px solid #ccc;
+        padding: 10px 10px;
+    }
+
+    .field-validation-error {
+        color: red;
+    }
+</style>
+
+<div id="login-div">
+    @using (Html.BeginForm("Autherize", "Login", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td></td>
+                <td style="text-decoration:underline">App Name</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.fName)</td>
+                <td>@Html.EditorFor(model => model.fName)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(model => model.fName)</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.fPassword)</td>
+                <td>@Html.EditorFor(model => model.fPassword)</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>@Html.ValidationMessageFor(model => model.fPassword)</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label class="field-validation-error">@Html.DisplayFor(model=>model.LoginErrorMsg)</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="登入" />
+                    <input type="reset" value="清除" />
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

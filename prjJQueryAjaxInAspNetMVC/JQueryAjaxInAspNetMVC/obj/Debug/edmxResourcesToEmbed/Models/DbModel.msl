@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbJQueryAjaxMVCModelStoreContainer" CdmEntityContainer="dbJQueryAjaxMVCEntities">
+    <EntitySetMapping Name="tEmployees">
+      <EntityTypeMapping TypeName="dbJQueryAjaxMVCModel.tEmployee">
+        <MappingFragment StoreEntitySet="tEmployee">
+          <ScalarProperty Name="fEmpId" ColumnName="fEmpId" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fPosition" ColumnName="fPosition" />
+          <ScalarProperty Name="fOffice" ColumnName="fOffice" />
+          <ScalarProperty Name="fSalary" ColumnName="fSalary" />
+          <ScalarProperty Name="fImagePath" ColumnName="fImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

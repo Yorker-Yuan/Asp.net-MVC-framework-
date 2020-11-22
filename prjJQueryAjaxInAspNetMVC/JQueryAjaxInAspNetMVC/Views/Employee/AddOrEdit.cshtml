@@ -1,0 +1,76 @@
+﻿@model JQueryAjaxInAspNetMVC.Models.tEmployee
+
+@{
+    ViewBag.Title = "AddOrEdit";
+    Layout = null;
+}
+
+
+@using (Html.BeginForm("AddOrEdit", "Employee",FormMethod.Post,new { enctype = "multipart/form-data", onSubmit = "return jQueryAjaxPost(this);", data_resetUrl = Url.Action("AddOrEdit","Employee",new { id = 0})}))
+{
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.fEmpId)
+            @Html.HiddenFor(model => model.fImagePath)
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.fName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fPosition, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.fPosition, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fPosition, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fOffice, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.fOffice, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fOffice, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fSalary, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.fSalary, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.fSalary, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="送出" class="btn btn-success" />
+                        @if (Model.fEmpId != 0)
+                        { 
+                            <a class="btn btn-success" onclick="refreshAddNewTab('@Url.Action("AddOrEdit","Employee",new { id = 0})',false)">
+                                <i class="fa fa-plus"></i>新增
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.fImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <img src="@Url.Content(Model.fImagePath)" style="margin:10px" height="200" width="200" id="imagePreview" />
+                        <input type="file" name="fImageUpload" accept="image/jpeg,image/png" onchange="ShowImagePreview(this, document.querySelector('#imagePreview'))" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+<script src="~/Scripts/Scripts.js"></script>

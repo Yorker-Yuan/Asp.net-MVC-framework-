@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbJQueryAjaxMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tEmployee">
+    <Key>
+      <PropertyRef Name="fEmpId" />
+    </Key>
+    <Property Name="fEmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fOffice" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="fSalary" Type="Int32" />
+    <Property Name="fImagePath" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="dbJQueryAjaxMVCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tEmployees" EntityType="Self.tEmployee" />
+  </EntityContainer>
+</Schema>
